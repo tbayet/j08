@@ -1,43 +1,85 @@
 var size = 10;
 var idcanvas = "c_game";
 
-function draw_ship(posx, posy, dimx, dimy, color, imgsrc, rotate)
+function draw_obstacle(x1, y1, x2, y2, img)
 {
 	var canvas = parent.document.getElementById(idcanvas);
 	var ctx = canvas.getContext("2d");
-	var img = new Image();
+	var image = new Image();
+	image.src = img;
+	image.onload = function(){
+		ctx.drawImage(image, x1 * size, y1 * size, (x2 - x1) * size, (y2 - y1) * size);
+	}
+}
 
-	var px = posx - Math.trunc((dimx - 1) / 2);
-	var py = posy - Math.trunc((dimy - 1) / 2);
-	var px2 = px;
-	var py2 = py;
+function draw_ship(x1, y1, x2, y2, color)
+{
+	var canvas = parent.document.getElementById(idcanvas);
+	var ctx = canvas.getContext("2d");
 
-	if (rotate == 90)
-	{
-		px2 = posx - (posy - py);
-		py2 = posy - (posx - px);
-	}
-	else if (rotate == 180)
-	{
-		px2 = posx - ((px + dimx) - posx - 1);
-		py2 = posy - (py + dimy - posy - 1);
-	}
-	else if (rotate == 270)
-	{
-		px2 = posx - (posy - py);
-		py2 = posy - (px + dimx - posx - 1);
-	}
-	if (rotate == 90 || rotate == 270)
-	{
-		var tmp = dimx;
-		dimx = dimy;
-		dimy = tmp;
-	}
 	ctx.fillStyle = color;
 	ctx.beginPath();
-	ctx.fillRect(px2 * size, py2 * size, dimx *size, dimy *size);
-//	img.src = imgsrc;
-//	img.onload = function() {ctx.drawImage(img, px2 * size, py2 * size, dimx * size, dimy * size);};
+	ctx.fillRect(x1 * size, y1 * size, (x2 - x1) * size, (y2 - y1) * size);
+}
+
+function clear_ship(x1, y1, x2, y2)
+{
+	var canvas = parent.document.getElementById(idcanvas);
+	var ctx = canvas.getContext("2d");
+	ctx.clearRect(x1 * size, y1 * size, (x2 - x1) * size, (y2 - y1) * size);
+}
+
+function animate_ship(x1, y1, x2, y2, x3, y3, x4, y4, color)
+{
+	var canvas = parent.document.getElementById(idcanvas);
+	var ctx = canvas.getContext("2d");
+	var dir;
+	var inter;
+
+	if (x1 != x3)
+	{
+		if (x1 < x3)
+			dir = 'r';
+		else
+			dir = 'l';
+	}
+	else
+	{
+		if (y1 < y3)
+			dir = 'd';
+		else
+			dir = 'u';
+	}
+
+	inter = setInterval( function ()
+	{
+		if ((dir == 'r' || dir == 'l') && x1 == x3)
+			clearInterval(inter);
+		else if ((dir == 'u' || dir == 'd') && y1 == y3)
+			clearInterval(inter);
+		ctx.clearRect(x1 * size, y1 * size, (x2 - x1) * size, (y2 - y1) * size);
+		if (dir == 'r')
+		{
+			x1++;
+			x2++;
+		}
+		else if (dir == 'l')
+		{
+			x1--;
+			x2--;
+		}
+		else if (dir == 'u')
+		{
+			y1--;
+			y2--;
+		}
+		else if (dir == 'd')
+		{
+			y1++;
+			y2++;
+		}
+		draw_ship(x1, y1, x2, y2, color);
+	}, 500);
 }
 
 function clearGame()

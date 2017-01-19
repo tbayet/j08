@@ -1,15 +1,15 @@
 <?php
 class Box
 {
-	public $x1;
-	public $y1;
-	public $x2;
-	public $y2;
+	private $x1;
+	private $y1;
+	private $x2;
+	private $y2;
 
-	public function __construct($x, $y, $dimx, $dimy, $rotate)
+	public function __construct($posx, $posy, $dimx, $dimy, $rotate)
 	{
-		$px = $posx - ($dimx - 1) / 2;
-		$py = $posy - ($dimy - 1) / 2;
+		$px = $posx - intval(($dimx - 1) / 2);
+		$py = $posy - intval(($dimy - 1) / 2);
 		$this->x1 = $px;
 		$this->y1 = $py;
 
@@ -34,13 +34,13 @@ class Box
 			$dimx = $dimy;
 			$dimy = $tmp;
 		}
-		$this->x2 = $this->x1 + dimx;
-		$this->y2 = $this->y1 + dimy;
+		$this->x2 = $this->x1 + $dimx;
+		$this->y2 = $this->y1 + $dimy;
 	}
-	public function update($x, $y, $dimx, $dimy, $rotate)
+	public function update($posx, $posy, $dimx, $dimy, $rotate)
 	{
-		$px = $posx - ($dimx - 1) / 2;
-		$py = $posy - ($dimy - 1) / 2;
+		$px = $posx - intval(($dimx - 1) / 2);
+		$py = $posy - intval(($dimy - 1) / 2);
 		$this->x1 = $px;
 		$this->y1 = $py;
 
@@ -65,8 +65,8 @@ class Box
 			$dimx = $dimy;
 			$dimy = $tmp;
 		}
-		$this->x2 = $this->x1 + dimx;
-		$this->y2 = $this->y1 + dimy;
+		$this->x2 = $this->x1 + $dimx;
+		$this->y2 = $this->y1 + $dimy;
 	}
 	public function collision(Box $elem)
 	{
@@ -87,6 +87,10 @@ class Box
 		if ($bool_x === True && $bool_y === True)
 			return (True);
 		return (False);
+	}
+	public function __toString()
+	{
+		return ($this->x1.", ".$this->y1.", ".$this->x2.", ".$this->y2);
 	}
 }
 ?>
