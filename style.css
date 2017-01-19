@@ -1,0 +1,41 @@
+body
+{
+	background-color: lavender;
+}
+
+#d_menu
+{
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	width: 300px;
+	height: 1000px;
+}
+
+#d_game
+{
+	position: absolute;
+	left: 310px;
+	top: 10px;
+	border: solid 1px yellow;
+	width: 1500px;
+	height: 1000px;
+	background-image: url("img/bg.jpg");
+	box-shadow: -3px 0px 6px black;
+}
+
+.c_anvas
+{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+#c_background
+{
+	z-index: 0;
+}
+#c_game
+{
+	z-index: 1;
+}
