@@ -9,17 +9,22 @@
 	</div>
 	<script type="text/javascript" src="ship.js"></script>
 	<script>
-	<?php print("
-		draw_ship(1, 1, 4, 1, 'red', 'img/naboo.png', 90);
-		draw_ship(1, 1, 4, 1, 'blue', 'img/naboo.png', 0);
-		draw_ship(1, 1, 4, 1, 'green', 'img/naboo.png', 180);
-		draw_ship(1, 1, 4, 1, 'orange', 'img/naboo.png', 270);
-		draw_ship(4, 11, 8, 5, 'red', 'img/naboo.png', 90);
-		draw_ship(4, 11, 8, 5, 'blue', 'img/naboo.png', 0);
-		draw_ship(4, 11, 8, 5, 'green', 'img/naboo.png', 180);
-		draw_ship(4, 11, 8, 5, 'orange', 'img/naboo.png', 270);
-		draw_ship(10, 20, 10, 3, 'orange', 'img/naboo.png', 0);
-		draw_ship(10, 20, 10, 3, 'blue', 'img/naboo.png', 90);
-	"); ?>
+	<?php
+	include_once ("Naboo.class.php");
+
+	$Naboo = new Naboo("naboo");
+	print("draw_ship(".$Naboo->x.", ".$Naboo->y.", ".$Naboo->dimx.", ".$Naboo->dimy.", 'red', 'img/naboo.png', ".$Naboo->rot.");\n");
+	$Naboo->move(4);
+	print("draw_ship(".$Naboo->x.", ".$Naboo->y.", ".$Naboo->dimx.", ".$Naboo->dimy.", 'green', 'img/naboo.png', ".$Naboo->rot.");\n");
+	$Naboo->rot = 90;
+	print("draw_ship(".$Naboo->x.", ".$Naboo->y.", ".$Naboo->dimx.", ".$Naboo->dimy.", 'orange', 'img/naboo.png', ".$Naboo->rot.");\n");
+	$Naboo->move(4);
+	print("draw_ship(".$Naboo->x.", ".$Naboo->y.", ".$Naboo->dimx.", ".$Naboo->dimy.", 'purple', 'img/naboo.png', ".$Naboo->rot.");\n");
+
+//print("
+//		draw_ship(5, 5, 4, 1, 'red', 'img/naboo.png', 0);
+//	");
+
+		?>
 	</script>
 </body>
