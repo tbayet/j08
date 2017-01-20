@@ -15,11 +15,11 @@ Class Obstacle
 		$this->dimx = $dimx;
 		$this->dimy = $dimy;
 		$this->img = $img;
-		$box = new Box($x, $y, $dimx, $dimy, 0);
+		$this->box = new Box($x, $y, $dimx, $dimy, 0);
 	}
 	public function __toString()
 	{
-		return("<SCRIPT>draw_obstacle(".$this->box.", ".$this->img.");</SCRIPT>\n");
+		return("<SCRIPT>draw_obstacle(".$this->box.", '".$this->img."');</SCRIPT>\n");
 	}
 }
 ?>

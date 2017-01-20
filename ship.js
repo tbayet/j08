@@ -6,6 +6,10 @@ function draw_obstacle(x1, y1, x2, y2, img)
 	var canvas = parent.document.getElementById(idcanvas);
 	var ctx = canvas.getContext("2d");
 	var image = new Image();
+
+	ctx.strokeStyle = "yellow";
+	ctx.lineWidth = 1;
+	ctx.strokeRect(x1 * size, y1 * size, (x2 - x1) * size, (y2 - y1) * size);
 	image.src = img;
 	image.onload = function(){
 		ctx.drawImage(image, x1 * size, y1 * size, (x2 - x1) * size, (y2 - y1) * size);
@@ -57,28 +61,31 @@ function animate_ship(x1, y1, x2, y2, x3, y3, x4, y4, color)
 			clearInterval(inter);
 		else if ((dir == 'u' || dir == 'd') && y1 == y3)
 			clearInterval(inter);
-		ctx.clearRect(x1 * size, y1 * size, (x2 - x1) * size, (y2 - y1) * size);
-		if (dir == 'r')
+		else
 		{
-			x1++;
-			x2++;
+			ctx.clearRect(x1 * size, y1 * size, (x2 - x1) * size, (y2 - y1) * size);
+			if (dir == 'r')
+			{
+				x1++;
+				x2++;
+			}
+			else if (dir == 'l')
+			{
+				x1--;
+				x2--;
+			}
+			else if (dir == 'u')
+			{
+				y1--;
+				y2--;
+			}
+			else if (dir == 'd')
+			{
+				y1++;
+				y2++;
+			}
+			draw_ship(x1, y1, x2, y2, color);
 		}
-		else if (dir == 'l')
-		{
-			x1--;
-			x2--;
-		}
-		else if (dir == 'u')
-		{
-			y1--;
-			y2--;
-		}
-		else if (dir == 'd')
-		{
-			y1++;
-			y2++;
-		}
-		draw_ship(x1, y1, x2, y2, color);
 	}, 500);
 }
 

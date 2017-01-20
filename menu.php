@@ -1,24 +1,20 @@
 <?php
 include_once("Naboo.class.php");
 include_once("Obstacle.class.php");
-
 session_start();
+$_SESSION['init'] = False;
 
-$init;
-
-function init()
-{
-	$init = true;
-	$_SESSION['ship'] = new Naboo("naboo");
-	$obstacles = array(); //TO PRINT IN FIRST LAYER
-	$obstacles[0] = new Obstacle(45, 45, 3, 3, "img/meteor.png");
-	$obstacles[1] = new Obstacle(30, 80, 6, 6, "img/meteor.png");
-	$obstacles[2] = new Obstacle(120, 10, 5, 5, "img/meteor.png");
-	$obstacles[3] = new Obstacle(100, 60, 10, 10, "img/meteor.png");
-	$_SESSION['obstacles'] = $obstacles;
-}
-
-if ($_SESSION['ship'] == NULL) //Futur Player
+	function init()
+	{
+		$_SESSION['ship'] = new Naboo("naboo");
+		$obstacles = array(); //TO PRINT IN FIRST LAYER
+		$obstacles[0] = new Obstacle(45, 45, 3, 3, "img/meteor.png");
+		$obstacles[1] = new Obstacle(30, 80, 6, 6, "img/meteor.png");
+		$obstacles[2] = new Obstacle(120, 10, 5, 5, "img/meteor.png");
+		$obstacles[3] = new Obstacle(100, 60, 10, 10, "img/meteor.png");
+		$_SESSION['obstacles'] = $obstacles;
+	}
+if ($_SESSION['init'] != True) //Futur Player
 {
 	init();
 }
@@ -69,36 +65,35 @@ if ($_SESSION['ship'] == NULL) //Futur Player
 
 <!-- TURN LEFT GESTION -->
 	<form method="get" action="menu.php">
-		<input type="submit" name="turnLeft" value="OK"/>
+		<input type="submit" name="turnLeft" value="Turn Left"/>
 	</form>
 <!-- TURN RIGHT GESTION -->
 	<form method="get" action="menu.php">
-		<input type="submit" name="turnRight" value="OK"/>
+		<input type="submit" name="turnRight" value="Turn Right"/>
 	</form>
 
 	<script type="text/javascript" src="ship.js"></script>
 	<?php
 
-if ($_GET['turnLeft'] == 'OK')
-{
-	$_SESSION['ship']->turnLeft();
-	$_SESSION['ship']->printMe();
-}
-else if ($_GET['turnRight'] == 'OK')
-{
-	$_SESSION['ship']->turnRight();
-	$_SESSION['ship']->printMe();
-}
-
-if (isset($init) && $init == True)
-{
-	foreach($_SESSION['obstacles'] as $obs)
+	if ($_GET['turnLeft'] == 'Turn Left')
 	{
-		print($obs);
+		$_SESSION['ship']->turnLeft();
+		$_SESSION['ship']->printMe();
 	}
-	$init = False;
-}
+	else if ($_GET['turnRight'] == 'Turn Right')
+	{
+		$_SESSION['ship']->turnRight();
+		$_SESSION['ship']->printMe();
+	}
 
+	if ($_SESSION['init'] != True)
+	{
+		foreach($_SESSION['obstacles'] as $obs)
+		{
+			print($obs);
+		}
+		$_SESSION['init'] = True;
+	}
 	?>
 	</body>
 </html>
