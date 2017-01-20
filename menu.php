@@ -180,12 +180,12 @@ function gestion_pp($pp)
 if ($_GET['value'] == 'Turn Left')
 {
 	$_SESSION['player']->getCurrentShip()->turnLeft();
-	$_SESSION['player']->getCurrentShip()->printme();
+	$_SESSION['player']->getCurrentShip()->printme($_SESSION['player']->color);
 }
 else if ($_GET['value'] == 'Turn Right')
 {
 	$_SESSION['player']->getCurrentShip()->turnRight();
-	$_SESSION['player']->getCurrentShip()->printme();
+	$_SESSION['player']->getCurrentShip()->printme($_SESSION['player']->color);
 }
 
 if ($_SESSION['init'] != True)
