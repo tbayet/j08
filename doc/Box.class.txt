@@ -1,0 +1,12 @@
+<-Box-------------------------------------------
+
+This class is usefull for creating boxes that
+allow a area that become sensitive at the others
+box on the map;
+
+There is 4 atributes that is necessary to take the
+size of the box create;
+
+The method update allow to change coord to a box.
+
+----------------------------------------------->

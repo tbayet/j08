@@ -1,0 +1,9 @@
+<-Obstacle---------------------------------
+
+This is a simple class that give at the map
+obstacle (Deadly Asteroids).
+
+There is just a 2 instances alow to set an image;
+and another that create the box of the obstacle.
+
+------------------------------------------>

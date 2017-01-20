@@ -1,0 +1,12 @@
+<-Tie-----------------------------------------
+
+Tie is one of the three playable kind of ships
+that you can use.
+
+There is 3 constant instances here, the life,
+actions point, and speed of the tie ship.
+
+you can reset the ship stats with the Start function.
+and an another give you the max Hp of your tie ship.
+
+----------------------------------------------->

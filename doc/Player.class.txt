@@ -1,0 +1,15 @@
+<-Player---------------------------------------------
+
+This the class for making playable players.
+
+There is 3 instances that is one who contain all the
+ships he have, the color and the instance who are used
+for swap the player turn.
+
+there is 4 method :
+	- One who start the player's wrigth.
+	- One catching which player is actually use.
+	- An another for finish the player turn.
+	- And finally one adding ships in the players main.
+
+---------------------------------------------------->

@@ -1,0 +1,17 @@
+<-Vaisseau----------------------------
+
+This is the main class of the project.
+
+There are all instances for the stat
+that this function will give at his sons;
+
+There the methods :
+
+	-He can make your ship turn left.
+	- Or right.
+	-There is the main method allow to
+	do a animation for the move.
+	-Finally, there is a script for
+	print the ship on the map !
+
+------------------------------------->
