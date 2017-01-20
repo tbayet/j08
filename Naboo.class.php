@@ -6,9 +6,9 @@
 		const PP = 10;
 		const PC = 5;
 
-		function __construct($name, $x, $y, $rot)
+		public function __construct($name, $x, $y, $rot)
 		{
-			start();
+			$this->start();
 			$this->nom = $name;
 			$this->dimx = 4;
 			$this->dimy = 1;

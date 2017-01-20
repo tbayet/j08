@@ -86,7 +86,7 @@ function animate_ship(x1, y1, x2, y2, x3, y3, x4, y4, color)
 			}
 			draw_ship(x1, y1, x2, y2, color);
 		}
-	}, 500);
+	}, 100);
 }
 
 function clearGame()

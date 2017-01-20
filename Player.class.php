@@ -1,12 +1,12 @@
 <?php
-include_once("Naboo.class.php");
 include_once("Vaisseau.class.php");
 
 class Player
 {
-	private $ships;
+	public $ships;
 	public $color;
 	private $nextP;
+	private $current_ship;
 
 	private static $selected;
 
@@ -15,6 +15,7 @@ class Player
 		$this->ships = array();
 		$this->color = $color;
 		self::$selected = NULL;
+		$current_ship = NULL;
 	}
 	public function setNext(Player $next)
 	{
@@ -36,6 +37,14 @@ class Player
 	public function addShip(Vaisseau $ship)
 	{
 		array_push($this->ships, $ship);
+	}
+	public function setCurrentShip(Vaisseau $ship)
+	{
+		$this->current_ship = $ship;
+	}
+	public function getCurrentShip()
+	{
+		return ($this->current_ship);
 	}
 }
 ?>

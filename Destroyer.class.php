@@ -8,7 +8,7 @@
 
 		function __construct($name, $x, $y, $rot)
 		{
-			start();
+			$this->start();
 			$this->nom = $name;
 			$this->dimx = 8;
 			$this->dimy = 3;
@@ -21,7 +21,7 @@
 
 		public function start()
 		{
-			$this->VIT = self::VIT;
+			$this->vit = self::VIT;
 			$this->pp = self::PP;
 		}
 		public function maxPC()

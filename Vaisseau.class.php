@@ -10,7 +10,7 @@ class Vaisseau
 	private $box;
 	private $oldbox;
 	private $pc;
-	private $pp;
+	public $pp;
 	public $vit;
 	private $man;
 	private $bouc;
@@ -60,10 +60,10 @@ class Vaisseau
 	{
 		return ($this->oldbox .", ".$this->box);
 	}
-	public function printme()
+	public function printme($color)
 	{
 		print("<SCRIPT>clear_ship(".$this->oldbox.");".PHP_EOL.
-		"draw_ship(".$this->box.", 'red');".PHP_EOL."</SCRIPT>");
+		"draw_ship(".$this->box.", '".$color."');".PHP_EOL."</SCRIPT>");
 	}
 }
 ?>
