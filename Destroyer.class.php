@@ -4,7 +4,7 @@
 	{
 		const VIT = 10;
 		const PP = 12;
-		const PC = 8;
+		const PC = 12;
 
 		function __construct($name, $x, $y, $rot)
 		{
@@ -27,6 +27,10 @@
 		public function maxPC()
 		{
 			return (self::PC);
+		}
+		public static function doc()
+		{
+			return(file_get_contents("doc/Destroyer.doc.txt"));
 		}
 	}
 ?>

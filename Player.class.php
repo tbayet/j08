@@ -5,7 +5,7 @@ class Player
 {
 	public $ships;
 	public $color;
-	private $nextP;
+	public $nextP;
 	private $current_ship;
 
 	private static $selected;
@@ -46,5 +46,9 @@ class Player
 	{
 		return ($this->current_ship);
 	}
+		public static function doc()
+		{
+			return(file_get_contents("doc/Player.doc.txt"));
+		}
 }
 ?>

@@ -1,6 +1,16 @@
 var size = 10;
 var idcanvas = "c_game";
 
+function draw_fire(x1, y1, x2, y2)
+{
+	var canvas = parent.document.getElementById(idcanvas);
+	var ctx = canvas.getContext("2d");
+
+	ctx.fillStyle = "yellow";
+	ctx.beginPath();
+	ctx.fillRect(x1 * size, y1 * size, x2 * size, y2 * size);
+}
+
 function draw_obstacle(x1, y1, x2, y2, img)
 {
 	var canvas = parent.document.getElementById(idcanvas);

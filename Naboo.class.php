@@ -28,5 +28,9 @@
 		{
 			return (self::PC);
 		}
+		public static function doc()
+		{
+			return(file_get_contents("doc/Naboo.doc.txt"));
+		}
 	}
 ?>

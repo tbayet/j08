@@ -6,13 +6,22 @@ class Box
 	private $x2;
 	private $y2;
 
-	public function __construct($posx, $posy, $dimx, $dimy, $rotate)
+	public function __construct($posx, $posy, $dimx, $dimy, $rotate, $dir)
 	{
-		$px = $posx - intval(($dimx - 1) / 2);
-		$py = $posy - intval(($dimy - 1) / 2);
-		$this->x1 = $px;
-		$this->y1 = $py;
-
+		if ($dir == TRUE)
+		{
+			$px = $posx;
+			$py = $posy;
+			$this->x1 = $posx;
+			$this->y1 = $posy;
+		}
+		else
+		{
+			$px = $posx - intval(($dimx - 1) / 2);
+			$py = $posy - intval(($dimy - 1) / 2);
+			$this->x1 = $px;
+			$this->y1 = $py;
+		}
 		if ($rotate == 90)
 		{
 			$this->x1 = $posx - ($posy - $py);
@@ -37,13 +46,22 @@ class Box
 		$this->x2 = $this->x1 + $dimx;
 		$this->y2 = $this->y1 + $dimy;
 	}
-	public function update($posx, $posy, $dimx, $dimy, $rotate)
+	public function update($posx, $posy, $dimx, $dimy, $rotate, $dir)
 	{
-		$px = $posx - intval(($dimx - 1) / 2);
-		$py = $posy - intval(($dimy - 1) / 2);
-		$this->x1 = $px;
-		$this->y1 = $py;
-
+		if ($dir == TRUE)
+		{
+			$px = $posx;
+			$py = $posy;
+			$this->x1 = $posx;
+			$this->y1 = $posy;
+		}
+		else
+		{
+			$px = $posx - intval(($dimx - 1) / 2);
+			$py = $posy - intval(($dimy - 1) / 2);
+			$this->x1 = $px;
+			$this->y1 = $py;
+		}
 		if ($rotate == 90)
 		{
 			$this->x1 = $posx - ($posy - $py);
@@ -84,7 +102,7 @@ class Box
 		{
 			$bool_y = True;
 		}
-		if ($bool_x === True && $bool_y === True)
+		if ($bool_x == True && $bool_y == True)
 			return (True);
 		return (False);
 	}
@@ -92,5 +110,9 @@ class Box
 	{
 		return ($this->x1.", ".$this->y1.", ".$this->x2.", ".$this->y2);
 	}
+		public static function doc()
+		{
+			return(file_get_contents("doc/Box.doc.txt"));
+		}
 }
 ?>

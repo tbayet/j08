@@ -1,0 +1,12 @@
+<-Arme------------------------------------------
+
+This class is usefull for creating Weapons that
+allow a area that become a BEAM with a big
+yellow box on the map;
+
+There is 4 atributes that is necessary to take the
+size of the box create and one for rotation;
+
+The method update allow to change coord to a Arme.
+
+----------------------------------------------->

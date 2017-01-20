@@ -25,7 +25,6 @@ if ($_GET['reset'] == 'reset')
 	</div>
 <?php
 
-
 function init()
 {
 	include("init.php");
@@ -46,6 +45,15 @@ if ($_SESSION['init'] != True) //Futur Player
 if ($_GET['value'] == 'Fin')
 {
 	$_SESSION['player'] = $_SESSION['player']->finish();
+	foreach ($_SESSION['player']->ships as $ship)
+	{
+		$ship->start();
+	}
+}
+
+if ($_GET['value'] == 'fire')
+{
+	$_SESSION['player']->ships = $_SESSION['player']->getCurrentShip()->fire($_SESSION['player']->nextP->ships);
 }
 
 
@@ -167,6 +175,11 @@ function gestion_pp($pp)
 <!-- TURN RIGHT GESTION -->
 	<form method="get" action="menu.php">
 		<input type="submit" name="value" value="Turn Right"/>
+	</form>
+
+<!-- FIRE GESTION -->
+	<form method="get" action="menu.php">
+		<input type="submit" name="value" value="fire"/>
 	</form>
 
 <!-- Change PLAYER -->

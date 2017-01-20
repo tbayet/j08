@@ -14,7 +14,8 @@
 	$p2->addShip(new Tie("Mandela", 136, 93, 180));
 	$p2->addShip(new Naboo("Lenine",151 ,96 , 180));
 	$p2->addShip(new Naboo("Melenchon",151 ,90 , 180));
-	$p2->addShip(new Destroyer("Gandhi",144 ,93 , 180));
+	//$p2->addShip(new Destroyer("Gandhi",144 ,93 , 180));
+	$p2->addShip(new Destroyer("Gandhi", 30, 7, 180));
 
 	$p1->setNext($p2);
 	$p2->setNext($p1);
