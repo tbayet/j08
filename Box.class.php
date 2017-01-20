@@ -68,7 +68,7 @@ class Box
 		$this->x2 = $this->x1 + $dimx;
 		$this->y2 = $this->y1 + $dimy;
 	}
-	public function collision(Box $elem)
+	public function __invoke(Box $elem)
 	{
 		$bool_x = False;
 		$bool_y = False;

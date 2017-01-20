@@ -6,9 +6,9 @@ class Vaisseau
 {
 	use Coord;
 
+	public $nom;
 	private $box;
 	private $oldbox;
-	private $nom;
 	private $pc;
 	private $pp;
 	public $vit;
@@ -17,13 +17,13 @@ class Vaisseau
 	private $armes;
 
 
-	public function __construct($kwart)
+	public function __construct($x, $y, $rot)
 	{
-		$this->x = 5;
-		$this->y = 5;
-		$this->rot = 0;
+		$this->x = $x;
+		$this->y = $y;
+		$this->rot = $rot;
 		$this->box = new Box($this->x, $this->y, $this->dimx, $this->dimy, $this->rot);
-		$this->oldbox = new Box($this->x, $this->y, $this->dimx, $this->dimy, $this->rot);
+		$this->oldbox = clone $this->box;
 	}
 
 	public function move($mv)

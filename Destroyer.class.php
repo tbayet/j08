@@ -1,27 +1,27 @@
 <?php
 	include_once("Vaisseau.class.php");
-	class Naboo extends Vaisseau
+	class Destroyer extends Vaisseau
 	{
-		const VIT = 15;
-		const PP = 10;
-		const PC = 5;
+		const VIT = 10;
+		const PP = 12;
+		const PC = 8;
 
 		function __construct($name, $x, $y, $rot)
 		{
 			start();
 			$this->nom = $name;
-			$this->dimx = 4;
-			$this->dimy = 1;
+			$this->dimx = 8;
+			$this->dimy = 3;
 			$this->pc = self::PC;
-			$this->man = 4;
-			$this->bouc = 0;
+			$this->man = 5;
+			$this->bouc = 2;
 			$this->armes = array("arme1");
 			parent::__construct($x, $y, $rot);
 		}
 
 		public function start()
 		{
-			$this->vit = self::VIT;
+			$this->VIT = self::VIT;
 			$this->pp = self::PP;
 		}
 		public function maxPC()
